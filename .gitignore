@@ -1,2 +1,45 @@
-/bin
-/obj
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.sln.docstates
+
+# .NET Core
+*.swp
+*.swo
+*~
+
+# Build outputs
+*.dll
+*.exe
+*.pdb
+*.dll.config
+*.cache
+*.log
+
+# NuGet packages
+packages/
+*.nupkg
+
+# IDE files
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Application specific - Keep data files out of version control
+Infrastructure/Files/*.txt
+!Infrastructure/Files/.gitkeep
