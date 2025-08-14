@@ -1,14 +1,62 @@
-// namespace Roulette.Infrastructure.Storage
-// {
-//     public static class TextFileManager
-//     {
-//         public static string LeerArchivo(string ruta) =>
-//             File.Exists(ruta) ? File.ReadAllText(ruta) : "";
+namespace Roulette.Infrastructure.Storage
+{
+    public class TextFileManager
+    {
+        public string[] LeerLineas(string ruta)
+        {
+            if (!File.Exists(ruta))
+            {
+                // Crear el directorio si no existe
+                var directorio = Path.GetDirectoryName(ruta);
+                if (!string.IsNullOrEmpty(directorio) && !Directory.Exists(directorio))
+                {
+                    Directory.CreateDirectory(directorio);
+                }
+                
+                // Crear el archivo vacío
+                File.Create(ruta).Dispose();
+                return Array.Empty<string>();
+            }
 
-//         public static void EscribirArchivo(string ruta, string contenido) =>
-//             File.WriteAllText(ruta, contenido);
+            return File.ReadAllLines(ruta);
+        }
 
-//         public static void AgregarLinea(string ruta, string linea) =>
-//             File.AppendAllLines(ruta, new[] { linea });
-//     }
-// }
+        public void EscribirLineas(string ruta, IEnumerable<string> lineas)
+        {
+            var directorio = Path.GetDirectoryName(ruta);
+            if (!string.IsNullOrEmpty(directorio) && !Directory.Exists(directorio))
+            {
+                Directory.CreateDirectory(directorio);
+            }
+
+            File.WriteAllLines(ruta, lineas);
+        }
+
+        public void AgregarLinea(string ruta, string linea)
+        {
+            var directorio = Path.GetDirectoryName(ruta);
+            if (!string.IsNullOrEmpty(directorio) && !Directory.Exists(directorio))
+            {
+                Directory.CreateDirectory(directorio);
+            }
+
+            File.AppendAllLines(ruta, new[] { linea });
+        }
+
+        public string LeerArchivo(string ruta)
+        {
+            return File.Exists(ruta) ? File.ReadAllText(ruta) : "";
+        }
+
+        public void EscribirArchivo(string ruta, string contenido)
+        {
+            var directorio = Path.GetDirectoryName(ruta);
+            if (!string.IsNullOrEmpty(directorio) && !Directory.Exists(directorio))
+            {
+                Directory.CreateDirectory(directorio);
+            }
+
+            File.WriteAllText(ruta, contenido);
+        }
+    }
+}
