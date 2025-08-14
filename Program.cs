@@ -1,11 +1,13 @@
-﻿using Roulette.UI;
+﻿using Roulette.Controllers;
+
 namespace Roulette
 {
     public class Program
     {
         public static void Main()
         {
-            Menu.menu();
+            var mainController = new MainController();
+            mainController.Iniciar();
         }
     }
 }
