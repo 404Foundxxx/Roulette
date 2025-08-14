@@ -1,16 +1,35 @@
 using Spectre.Console;
-public class AnimarRuleta
+
+namespace Roulette.Shared.Utilities
 {
-    public static void Ruleta(string[] estudiantes, Random random)
+    public class AnimarRuleta
     {
-        Console.CursorVisible = false;
-        for (int i = 0; i < 100; i++)
+        public static void IniciarAnimacion()
         {
-            Console.Clear();
-            int indice = random.Next(estudiantes.Length);
-            SaltoDeLinea.SaltoDeLinea16();
-            AnsiConsole.Write(new FigletText($"{estudiantes[indice]}").Color(Color.White).Centered());
-            Thread.Sleep(50);
+            var mensajes = new[]
+            {
+                "Seleccionando...",
+                "Girando la ruleta...",
+                "Calculando resultado...",
+                "¡Ya casi está!"
+            };
+
+            Console.CursorVisible = false;
+
+            for (int i = 0; i < 60; i++)
+            {
+                Console.Clear();
+                SaltoDeLinea.SaltoDeLinea16();
+                
+                var mensaje = mensajes[i % mensajes.Length];
+                var puntos = new string('.', (i % 4) + 1);
+                
+                AnsiConsole.Write(new FigletText($"{mensaje}{puntos}")
+                    .Color(Color.Yellow)
+                    .Centered());
+                
+                Thread.Sleep(100);
+            }
         }
     }
 }
