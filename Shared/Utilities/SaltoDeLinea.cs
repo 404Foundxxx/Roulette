@@ -1,38 +1,41 @@
-public class SaltoDeLinea
+namespace Roulette.Shared.Utilities
 {
-    public static void SaltoDeLinea10()
+    public class SaltoDeLinea
     {
-        for (int i = 0; i <= 10; i++)
+        public static void SaltoDeLinea10()
         {
-            Console.WriteLine("");
+            for (int i = 0; i <= 10; i++)
+            {
+                Console.WriteLine("");
+            }
         }
-    }
-    public static void SaltoDeLinea18()
-    {
-        for (int i = 0; i <= 18; i++)
+        public static void SaltoDeLinea18()
         {
-            Console.WriteLine("");
+            for (int i = 0; i <= 18; i++)
+            {
+                Console.WriteLine("");
+            }
         }
-    }
-    public static void SaltoDeLinea16()
-    {
-        for (int i = 0; i <= 16; i++)
+        public static void SaltoDeLinea16()
         {
-            Console.WriteLine("");
+            for (int i = 0; i <= 16; i++)
+            {
+                Console.WriteLine("");
+            }
         }
-    }
-    public static void SaltoDeLinea15()
-    {
-        for (int i = 0; i <= 15; i++)
+        public static void SaltoDeLinea15()
         {
-            Console.WriteLine("");
+            for (int i = 0; i <= 15; i++)
+            {
+                Console.WriteLine("");
+            }
         }
-    }
-    public static void SaltoDeLinea12()
-    {
-        for (int i = 0; i <= 12; i++)
+        public static void SaltoDeLinea12()
         {
-            Console.WriteLine("");
+            for (int i = 0; i <= 12; i++)
+            {
+                Console.WriteLine("");
+            }
         }
     }
 }
